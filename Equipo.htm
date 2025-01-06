@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Equipo</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&display=swap');
+
+        body {
+            font-family: "Comfortaa", serif;
+            margin: 1.5;
+            padding: 0;
+            background-color: #a2d0f5;
+            color: black;
+            text-align: justify;
+            transition: background-color 0.5s, color 0.5s;
+        }
+
+        body.dark-mode {
+            background-color: #27323c;
+            color: white;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #007bff; /* Azul */
+            padding: 10px 20px;
+            color: rgb(0, 0, 0);
+            border-radius: 10px;
+        }
+
+        .navbar.dark-mode {
+            background-color: #003670;
+            color: rgb(255, 255, 255);
+        }
+
+        .navbar .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .logo img {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+
+        .navbar .logo span {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .navbar .nav-links {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .navbar .nav-links li {
+            margin: 0 15px;
+        }
+
+        .navbar .nav-links a {
+            color: rgb(0, 15, 92);
+            text-decoration: none;
+            font-size: 1em;
+        }
+
+        .navbar .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        .dark-mode .navbar .nav-links a {
+            color: rgb(255, 255, 255);
+        }
+
+        .dark-mode .feature-card {
+            background-color: #222222;
+            color: white;
+            box-shadow: 5px 7px 10px cyan;
+        }
+
+        .dark-mode footer{
+            background-color: #290055;
+            color: white;
+        }
+
+        .dark-mode .carousel {
+            background-color: #333333;
+        }
+
+        header {
+            background-color: #7700ff;
+            padding: 40px;
+            text-align: center;
+            color: #000000;
+            font-size: 5em;
+            border-radius: 10px;
+        }
+
+        .dark-mode header {
+            background-color: #25004f;
+            color: white;
+        }
+
+        .toggle-dark-mode {
+            margin-left: auto;
+            padding: 10px;
+            cursor: pointer;
+            background-color: white;
+            color: black;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .dark-mode .toggle-dark-mode {
+            background-color: black;
+            color: white;
+        }
+
+        .heroaux {
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(135deg, #cbb1ee, #8669aa);
+            color: white;
+            border-radius: 10px;
+        }
+
+        .heroaux h1 {
+            font-size: 2.5em;
+        }
+
+        .heroaux p {
+            font-size: 1.2em;
+            margin: 20px 0;
+        }
+
+        .cajablanca {
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(135deg, #ffffff, #828282);
+            color: rgb(0, 0, 0);
+            border-radius: 10px;
+        }
+
+        .cajablanca h1 {
+            font-size: 2.5em;
+        }
+
+        .cajablanca p {
+            font-size: 1.2em;
+            margin: 20px 0;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(135deg, #9e75d8, #8048c4);
+            color: white;
+            border-radius: 10px;
+        }
+
+        .hero h1 {
+            font-size: 2.5em;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            margin: 20px 0;
+        }
+
+        .dark-mode .heroaux{
+            background-color:(135deg, #5a4f69, #292134);
+            color: white;
+        }
+
+        .dark-mode .hero{
+            background: linear-gradient(135deg, #43325a, #422564);
+            color: white;
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+            gap: 20px;
+            border-radius: 10px;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            width: 300px;
+            box-shadow: 5px 7px 10px black;
+        }
+
+        .feature-card img {
+            max-width: 100px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+        }
+
+        footer {
+            background-color: #7700ff;
+            text-align: center;
+            padding: 10px;
+            color: #000000;
+            margin-top: 30px;
+            border-radius: 10px;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .title {
+            text-align: left;
+            color: #ffffff;
+        }
+
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .content img {
+            width: 48%;
+            border-radius: 5px;
+        }
+
+        .text {
+            width: 48%;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        .chalkboard {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .chalkboard ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .chalkboard ul li {
+            margin: 10px 0;
+        }
+
+        .chalkboard ul li::before {
+            content: "✔ ";
+            color: #32cd32;
+        }
+
+        .success {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        ol {
+            list-style-position: inside; /* Hace que el número esté dentro del contenedor */
+            padding-left: 0; /* Elimina el relleno izquierdo predeterminado */
+        }
+
+        li {
+            margin-left: 0; /* Elimina el margen izquierdo predeterminado */
+        }
+
+        section{
+            display: flex;
+            justify-content: center;
+            width: auto;
+            height: auto;
+            margin: 0 auto;
+        }
+
+        section img {
+            width: 300px;
+            height: auto;
+            flex-grow: 1;
+            object-fit: cover;
+            transition: .5s ease;
+            filter: grayscale(100%);
+        }
+
+        section img:hover{
+            transform: scale(1.5);
+            cursor: crosshair;
+            width: 300px;
+            opacity: 1;
+            filter: grayscale(0%);
+
+        }
+        
+         
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <!-- Logo -->
+        <div class="logo">
+            <img src="logo.png" alt="Logo de QuizZink">
+            <span>QuizZink</span>
+        </div>
+
+        <!-- Enlaces -->
+        <ul class="nav-links">
+            <li><a href="quizzink.htm">Inicio</a></li>
+            <li><a href="Objetivos.htm">El Objetivo del proyecto</a></li>
+            <li><a href="aventura.htm">Empieza tu aventura</a></li>
+            <li><a href="Equipo.htm">Equipo</a></li>
+            <li><a href="preguntas.htm">Preguntas frecuentes</a></li>
+        </ul>
+
+        <!-- Botón Modo Oscuro -->
+        <button class="toggle-dark-mode" onclick="toggleDarkMode()">🌙 Modo Oscuro</button>
+    </nav>
+
+    <p></p>
+
+    <header>
+        EL EQUIPO
+    </header>
+
+    <section class="features">
+        <div class="feature-card">
+            <h2>LIDERAZGO</h2>
+            <h2>MOTIVACIÓN</h2>
+            <h2>COORDINACIÓN</h2>
+            <h2>RESPONDABILIDAD</h2>
+        </div>
+        <div class="feature-card">
+            <p>La líder y directora de este eqipo de trabajo es</p>
+            <p><strong>Yedra García Sánchez</strong></p>
+            <p>quien se ha encargado de diversas labores dentro de éste, como la comunicación con nuestro cliente, diseño principal de QuizZink, reparto de tareas en todo momento y ayuda constante a todo el personal del equipo, sin dejar la motivacion de lado...</p>
+            <p>Podéis contactarla en: </p>
+            <p><strong>yedra.garsanchez@alum.uca.es</strong></p>
+        </div>
+    </section>
+
+    <p><strong>ESTE ES NUESTRO EQUIPO</strong></p>
+    <p>El equipo de traajo que ha hecho posible la plataforma QuizZink y tal como es hoy: <strong>un grupo trabajdor encargado y preocupado de la revolución educativa en nuestro país</strong></p>
+    <p><strong>PUEDES ESCRIBIR UN CORREO PINCHANDO EN EL NOMBRE DE LA PERSONA</strong></p>
+
+    <section class="features">
+        <div class="feature-card">
+            <h2>Yedra García Sánchez</h2>
+            <img src="yedra.jpg">
+            <p>Jugadora competitiva de Los Sims 4. Amante de Shin Chan y del queso (es intolerante a la lactosa).</p>
+        </div>
+        <div class="feature-card">  
+            <h2>Juan Manuel Caucelo Rodríguez</h2>
+            <img src="juanma.jpg">
+            <p>Tiene toda la pokedex en TCGP, a saber cómo lo ha hecho el tío</p>
+        </div>
+        <div class="feature-card">
+            <h2>Santiago Sánchez Loureiro</h2>
+            <img src="santi.jpg">
+            <p>Su portátil falleció a mitad del proyecto, será recordado.</p>
+        </div>
+        <div class="feature-card">
+            <h2>Javier Alcoba Navero</h2>
+            <img src="javi.jpg">
+            <p>Le gustan las mandarinas y los pandas. No va al día con One Piece pero está en ello.</p>
+        </div>
+        <div class="feature-card">
+            <h2>Alejandro Basallote Redondo</h2>
+            <img src="ale.jpg">
+            <p>Ahí donde lo ves está buscado en 194 países por exceso de belleza.</p>
+        </div>
+        <div class="feature-card">
+            <h2>Rubén Gutiérrez Villarín</h2>
+            <img src="ruben.jpg">
+            <p>Con premios a la excelencia por faltar a clase más días de los que tiene el año. RÚBEN TE QUEREMO.</p>
+        </div>
+    </section>
+
+    <footer>
+    Gmail: quizzink.mantenimiento@gmail.com                  Instagram: @quizzink
+    </footer>
+
+    <script>
+        function toggleDarkMode() {
+            const body = document.body;
+            const navbar = document.querySelector('.navbar');
+            const header = document.querySelector('header');
+            const footer = document.querySelector('footer');
+
+            body.classList.toggle('dark-mode');
+            navbar.classList.toggle('dark-mode');
+            header.classList.toggle('dark-mode');
+            footer.classList.toggle('dark-mode');
+
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                localStorage.setItem('darkMode', 'disabled');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const darkMode = localStorage.getItem('darkMode');
+            if (darkMode === 'enabled') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.navbar').classList.add('dark-mode');
+                document.querySelector('header').classList.add('dark-mode');
+                document.querySelector('footer').classList.add('dark-mode');
+            }
+        });
+    </script>
+
+</body>
+</html>

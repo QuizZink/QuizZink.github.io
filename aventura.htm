@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aventura</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&display=swap');
+
+        body {
+            font-family: "Comfortaa", serif;
+            margin: 1.5;
+            padding: 0;
+            background-color: #a2d0f5;
+            color: black;
+            text-align: justify;
+            transition: background-color 0.5s, color 0.5s;
+        }
+
+        body.dark-mode {
+            background-color: #27323c;
+            color: white;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #007bff; /* Azul */
+            padding: 10px 20px;
+            color: rgb(0, 0, 0);
+            border-radius: 10px;
+        }
+
+        .navbar.dark-mode {
+            background-color: #003670;
+            color: rgb(255, 255, 255);
+        }
+
+        .navbar .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .logo img {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+
+        .navbar .logo span {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .navbar .nav-links {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .navbar .nav-links li {
+            margin: 0 15px;
+        }
+
+        .navbar .nav-links a {
+            color: rgb(0, 15, 92);
+            text-decoration: none;
+            font-size: 1em;
+        }
+
+        .navbar .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        .dark-mode .navbar .nav-links a {
+            color: rgb(255, 255, 255);
+        }
+
+        .dark-mode .feature-card {
+            background-color: #222222;
+            color: white;
+        }
+
+        .dark-mode footer{
+            background-color: #290055;
+            color: white;
+        }
+
+        .dark-mode .carousel {
+            background-color: #333333;
+        }
+
+        .dark-mode .avatar-text {
+            font-size: 1.2em;
+            color: rgb(255, 255, 255);
+            max-width: 400px;
+        }
+
+        .dark-mode section img.selected {
+            border: 5px solid #ffffff;
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        header {
+            background-color: #7700ff;
+            padding: 40px;
+            text-align: center;
+            color: #000000;
+            font-size: 5em;
+            border-radius: 10px;
+        }
+
+        .dark-mode header {
+            background-color: #25004f;
+            color: white;
+        }
+
+        .toggle-dark-mode {
+            margin-left: auto;
+            padding: 10px;
+            cursor: pointer;
+            background-color: white;
+            color: black;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .dark-mode .toggle-dark-mode {
+            background-color: black;
+            color: white;
+        }
+
+        .heroaux {
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(135deg, #cbb1ee, #8669aa);
+            color: rgb(0, 0, 0);
+            border-radius: 10px;
+        }
+
+        .heroaux h1 {
+            font-size: 2.5em;
+        }
+
+        .heroaux p {
+            font-size: 1.2em;
+            margin: 20px 0;
+        }
+
+        .dark-mode .heroaux{
+            background-color:(135deg, #5a4f69, #292134);
+            color: white;
+        }
+
+        .dark-mode .hero{
+            background: linear-gradient(135deg, #43325a, #422564);
+            color: white;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(135deg, #9e75d8, #8048c4);
+            color: rgb(0, 0, 0);
+            border-radius: 10px;
+        }
+
+        .hero h1 {
+            font-size: 2.5em;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            margin: 20px 0;
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+            gap: 20px;
+            border-radius: 10px;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 5px 7px 10px black;
+            padding: 20px;
+            text-align: center;
+            width: 300px;
+            border-radius: 10px;
+        }
+
+        .feature-card img {
+            max-width: 100px;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            background-color: #7700ff;
+            text-align: center;
+            padding: 10px;
+            color: #000000;
+            margin-top: 30px;
+            border-radius: 10px;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .title {
+            text-align: left;
+            color: #000000;
+        }
+
+        .dark-mode .title{
+            color: #ffffff;
+        }
+
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .content img {
+            width: 48%;
+            border-radius: 5px;
+            border-radius: 10px;
+        }
+
+        .text {
+            width: 48%;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        .chalkboard {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .chalkboard ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .chalkboard ul li {
+            margin: 10px 0;
+        }
+
+        .chalkboard ul li::before {
+            content: "✔ ";
+            color: #32cd32;
+        }
+
+        .success {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        ol {
+            list-style-position: inside; /* Hace que el número esté dentro del contenedor */
+            padding-left: 0; /* Elimina el relleno izquierdo predeterminado */
+        }
+
+        li {
+            margin-left: 0; /* Elimina el margen izquierdo predeterminado */
+        }
+
+        section{
+            display: flex;
+            justify-content: center;
+            width: 800px;
+            height: 430px;
+            margin: 0 auto;
+        }
+
+        section img{
+            width: 150px;
+            flex-grow: 1;
+            object-fit: cover;
+            opacity: .6;
+            transition: .5s ease;
+            cursor: pointer;
+        }
+
+        section img:hover{
+            cursor: crosshair;
+            width: 400px;
+            opacity: 1;
+            filter: contrast(120%);
+        }
+
+        section img.selected {
+            border: 5px solid #000000;
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        .selected-avatar {
+            font-size: 1.2em;
+            text-align: center;
+            margin-top: 20px;
+            color: #7700ff;
+        }
+
+        .avatar-display {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            transition: all 0.5s;
+        }
+
+        .avatar-img {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            margin-right: 20px;
+        }
+
+        .avatar-text {
+            font-size: 1.5em;
+            color: rgb(255, 255, 255);
+            max-width: 400px;
+        }
+
+        #close-btn {
+            font-size: 2em;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            margin-top: 40px; /* Aumentamos el espacio debajo del texto */
+            transition: color 0.3s ease;
+        }
+
+        #close-btn:hover {
+            color: #7700ff;
+        }
+        
+         
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <!-- Logo -->
+        <div class="logo">
+            <img src="logo.png" alt="Logo de QuizZink">
+            <span>QuizZink</span>
+        </div>
+
+        <!-- Enlaces -->
+        <ul class="nav-links">
+            <li><a href="quizzink.htm">Inicio</a></li>
+            <li><a href="Objetivos.htm">El Objetivo del proyecto</a></li>
+            <li><a href="aventura.htm">Empieza tu aventura</a></li>
+            <li><a href="Equipo.htm">Equipo</a></li>
+            <li><a href="preguntas.htm">Preguntas frecuentes</a></li>
+        </ul>
+
+        <!-- Botón Modo Oscuro -->
+        <button class="toggle-dark-mode" onclick="toggleDarkMode()">🌙 Modo Oscuro</button>
+    </nav>
+
+    <p></p>
+
+    <header>
+        Empieza tu aventura
+    </header>
+   
+    <p>Sin más espera, es la hora de disfrutar de QuizZink. Para comenzar, elige uno de los siguientes avatares, <strong>¡EL QUE MÁS TE GUSTE!</strong></p>
+    <p>Acaso quieres ser...</p>
+
+    <section>
+        <img src="ajolote.png" onclick="seleccionarAvatar('Ajolote')">
+        <img src="rapuncel.png" onclick="seleccionarAvatar('Camaleon')">
+        <img src="pinguino.png" onclick="seleccionarAvatar('Pingüino')">
+        <img src="zorro.png" onclick="seleccionarAvatar('Zorro')">
+        <img src="dragonnegro.png" onclick="seleccionarAvatar('Dragronnegro')">
+    </section>
+
+    <div class="selected-avatar" id="selected-avatar"></div>
+
+    <!-- Contenedor de avatar a pantalla completa -->
+    <div class="avatar-display" id="avatar-display">
+        <img id="avatar-img" src="" alt="Avatar" class="avatar-img">
+        <div class="avatar-text">
+            <h2 id="avatar-name">Avatar Seleccionado</h2>
+            <p id="avatar-description">Aquí puedes poner una pequeña descripción del avatar seleccionado.</p>
+        </div>
+    </div>
+
+    <script>
+        function seleccionarAvatar(nombre) {
+            // Elimina la clase 'selected' de todas las imágenes
+            const imagenes = document.querySelectorAll('section img');
+            imagenes.forEach(imagen => {
+                imagen.classList.remove('selected');
+            });
+
+            // Añadir clase 'selected' a la imagen seleccionada
+            const imagenSeleccionada = event.target;
+            imagenSeleccionada.classList.add('selected');
+
+            // Mostrar el avatar en pantalla completa
+            const avatarDisplay = document.getElementById('avatar-display');
+            avatarDisplay.style.display = 'flex'; // Mostrar el contenedor
+
+            // Cambiar la imagen y el texto según el avatar seleccionado
+            const avatarImg = document.getElementById('avatar-img');
+            const avatarName = document.getElementById('avatar-name');
+            const avatarDescription = document.getElementById('avatar-description');
+
+            switch (nombre) {
+                case 'Ajolote':
+                    avatarImg.src = 'ajolote.png';
+                    avatarName.textContent = 'Ariel';
+                    avatarDescription.textContent = 'Ariel, el ajolote, vivía en el océano profundo. Su mejor amigo, Ever, era un pingüino juguetón. Juntos, exploraban cuevas submarinas y descubrían tesoros escondidos. Un día, encontraron una perla gigante y la llevaron a su hogar. Aprendieron que compartir y trabajar en equipo hace que la amistad sea más fuerte.';
+                    break;
+                case 'Camaleon':
+                    avatarImg.src = 'rapuncel.png';
+                    avatarName.textContent = 'Briar';
+                    avatarDescription.textContent = 'Briar, el camaleón, podía cambiar de color para esconderse. Un día, su amigo Zohar, el zorro, lo invitó a una fiesta en el bosque. Briar se puso de todos los colores del arcoíris y todos los animales quedaron maravillados. Aprendieron que la verdadera amistad es aceptar a los amigos tal como son.';
+                    break;
+                case 'Pingüino':
+                    avatarImg.src = 'pinguino.png';
+                    avatarName.textContent = 'Ever';
+                    avatarDescription.textContent = 'Ever, el pingüino travieso, adoraba deslizarse por el hielo. Un día conoció a Ariel, un ajolote rosa que cantaba melodías mágicas. Juntos, inventaron un juego: Ariel hacía olas gigantes y Ever las surfeaba riendo. Pronto, todos los animales del océano se unieron a la diversión. Ever y Ariel demostraron que la amistad hace cada día más emocionante';
+                    break;
+                case 'Zorro':
+                    avatarImg.src = 'zorro.png';
+                    avatarName.textContent = 'Zohar';
+                    avatarDescription.textContent = 'Zohar, el zorro, era muy astuto y siempre ayudaba a sus amigos. Un día, Briar se perdió en el bosque. Zohar usó su olfato agudo para encontrarlo. Juntos, regresaron a casa y celebraron con una gran cena. Aprendieron que la amistad significa estar siempre ahí para ayudar a los amigos.';
+                    break;
+                case 'Dragronnegro':
+                    avatarImg.src = 'dragonnegro.png';
+                    avatarName.textContent = 'Levi';
+                    avatarDescription.textContent = '???';
+                    break;
+                default:
+                    avatarImg.src = '';
+                    avatarName.textContent = '';
+                    avatarDescription.textContent = '';
+                    break;
+            }
+        }
+
+        // Función para cerrar el contenedor del avatar cuando el usuario hace clic fuera de la imagen
+        document.getElementById('avatar-display').addEventListener('click', function(event) {
+            // Si el clic es fuera de la imagen y el texto
+            if (event.target === this) {
+                this.style.display = 'none'; // Ocultar el contenedor
+            }
+        });
+    </script>
+
+    <div class="container">
+        <div class="hero">
+            <h1 class="title">INICIEMOS LA APLICACIÓN</h1>
+            <div class="content">
+                <img src="Inicio.PNG">
+                <div class="text">
+                    <p> ¡Vamos a empezar a aprender! </p>
+                    <p> Presiona "APRENDER" para comenzar </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <p></p>
+
+    <div class="container">
+        <div class="hero">
+            <h1 class="title">ELIGE TU CURSO</h1>
+            <div class="content">
+                <div class="text">
+                    <p> ¿Eres de 1º o de 3º?</p>
+                    <p> ¡Elige el curso en el que te encuentras antes de empezar! </p>
+                </div>
+                <img src="curso.png">
+            </div>
+        </div>
+    </div>
+
+    <p></p>
+
+    <div class="container">
+        <div class="hero">
+            <h1 class="title">ELIGE TU ASIGNATURA</h1>
+            <div class="content">
+                <img src="asignatura.png">
+                <div class="text">
+                    <p> ¿Matemáticas, lengua...? </p>
+                    <p> ¿Con qué asignatura de apetece aprender hoy? </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <p></p>
+
+    <div class="container">
+        <div class="hero">
+            <h1 class="title">Ahora responde a las preguntas. ¡TÚ PUEDESS!</h1>
+        </div>
+    </div>
+
+    <footer>
+    Gmail: quizzink.mantenimiento@gmail.com                  Instagram: @quizzink
+    </footer>
+
+    <script>
+        function toggleDarkMode() {
+            const body = document.body;
+            const navbar = document.querySelector('.navbar');
+            const header = document.querySelector('header');
+            const footer = document.querySelector('footer');
+
+            body.classList.toggle('dark-mode');
+            navbar.classList.toggle('dark-mode');
+            header.classList.toggle('dark-mode');
+            footer.classList.toggle('dark-mode');
+
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                localStorage.setItem('darkMode', 'disabled');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const darkMode = localStorage.getItem('darkMode');
+            if (darkMode === 'enabled') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.navbar').classList.add('dark-mode');
+                document.querySelector('header').classList.add('dark-mode');
+                document.querySelector('footer').classList.add('dark-mode');
+            }
+        });
+    </script>
+
+</body>
+</html>

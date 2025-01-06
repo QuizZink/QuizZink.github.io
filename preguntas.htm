@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preguntas</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&display=swap');
+        body {
+            font-family: "Comfortaa", serif;
+            margin: 1.5;
+            padding: 0;
+            background-color: #a2d0f5;
+            color: black;
+            text-align: justify;
+            transition: background-color 0.5s, color 0.5s;
+        }
+
+        body.dark-mode {
+            background-color: #27323c;
+            color: white;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #007bff; /* Azul */
+            padding: 10px 20px;
+            color: rgb(0, 0, 0);
+            border-radius: 10px;
+        }
+
+        .navbar.dark-mode {
+            background-color: #003670;
+            color: rgb(255, 255, 255);
+        }
+
+        .navbar .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .logo img {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+
+        .navbar .logo span {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .navbar .nav-links {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .navbar .nav-links li {
+            margin: 0 15px;
+        }
+
+        .navbar .nav-links a {
+            color: rgb(0, 15, 92);
+            text-decoration: none;
+            font-size: 1em;
+        }
+
+        .navbar .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        .dark-mode .navbar .nav-links a {
+            color: rgb(255, 255, 255);
+        }
+
+        .dark-mode .feature-card {
+            background-color: #222222;
+            color: white;
+            box-shadow: 5px 7px 10px cyan;
+        }
+
+        .dark-mode footer{
+            background-color: #290055;
+            color: white;
+        }
+
+        .dark-mode .carousel {
+            background-color: #333333;
+        }
+
+        header {
+            background-color: #7700ff;
+            padding: 40px;
+            text-align: center;
+            color: #000000;
+            font-size: 5em;
+            border-radius: 10px;
+        }
+
+        .dark-mode header {
+            background-color: #25004f;
+            color: white;
+        }
+
+        .toggle-dark-mode {
+            margin-left: auto;
+            padding: 10px;
+            cursor: pointer;
+            background-color: white;
+            color: black;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .dark-mode .toggle-dark-mode {
+            background-color: black;
+            color: white;
+        }
+
+        h1{
+            text-align: center;
+            color: #1a73e8;
+        }
+
+        .heroaux {
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(135deg, #cbb1ee, #8669aa);
+            color: rgb(0, 0, 0);
+            border-radius: 10px;
+        }
+
+        .dark-mode .heroaux{
+            background-color:(135deg, #5a4f69, #292134);
+            color: white;
+        }
+
+        .dark-mode .hero{
+            background-color:(135deg, #332644, #2c1944);
+            color: white;
+        }
+
+        .heroaux h1 {
+            font-size: 2.5em;
+        }
+
+        .heroaux p {
+            font-size: 1.2em;
+            margin: 20px 0;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(135deg, #9e75d8, #8048c4);
+            color: rgb(0, 0, 0);
+            border-radius: 10px;
+        }
+
+        .hero h1 {
+            font-size: 2.5em;   
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            margin: 20px 0;
+        }
+
+        .dark-mode .heroaux{
+            background-color:(135deg, #5a4f69, #292134);
+            color: white;
+        }
+
+        .dark-mode .hero{
+            background: linear-gradient(135deg, #43325a, #422564);
+            color: white;
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+            gap: 20px;
+            border-radius: 10px;
+        }
+
+        .dark-mode .features{
+            background-color: #27323c;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 5px 7px 10px black;
+            padding: 20px;
+            text-align: center;
+            width: 300px;
+            border-radius: 10px;
+        }
+
+        .feature-card img {
+            max-width: 100px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+        }
+
+        footer {
+            background-color: #7700ff;
+            text-align: center;
+            padding: 10px;
+            color: #000000;
+            margin-top: 30px;
+            border-radius: 10px;
+        }
+
+        section {
+            margin-top: 50px; /* Espacio entre el carrusel y el contenido posterior */
+            padding: 20px;
+            text-align: justify;
+            background-color: #a2d0f5; /* Coincide con el fondo del cuerpo */
+        }
+
+        .faq-section {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+        }
+
+        .faq-item a {
+            color: #1a73e8;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .faq-item a:hover {
+            text-decoration: underline;
+        }
+
+        .faq-item p {
+            margin-top: 5px;
+            font-size: 16px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 14px;
+        }
+
+        section{
+            display: flex;
+            justify-content: center;
+            width: auto;
+            height: auto;
+            margin: 0 auto;
+        }
+
+        section img {
+            width: 300px;
+            height: auto;
+            flex-grow: 1;
+            object-fit: cover;
+            opacity: .6;
+            transition: .5s ease;
+        }
+
+        section img:hover{
+            transform: scale(1.5);
+            cursor: crosshair;
+            width: 300px;
+            opacity: 1;
+            filter: contrast(120%);
+
+        }
+
+        .download-section {
+            text-align: center;
+            padding: 30px;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            max-width: 900px;
+            border-radius: 10px;
+        }
+
+        .dark-mode .download-section{
+            background-color: #27323c;
+            box-shadow: 10px 15px 20px cyan;
+        }
+
+        .download-section h1 {
+            font-size: 2em;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .dark-mode .download-section h1{
+            color: #dbdcdc;
+        }
+
+        .download-section h2 {
+            font-size: 1.5em;
+            color: orange;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        .alert {
+            display: block;
+            color: orange;
+            font-size: 1em;
+            margin-top: 5px;
+            font-weight: bold;
+        }
+
+        .map {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        iframe {
+            border: 0;
+            border-radius: 10px;
+            width: 400px;
+            height: 300px;
+        }
+
+        
+    </style>
+</head>
+<body>
+    
+    <nav class="navbar">
+        <!-- Logo -->
+        <div class="logo">
+            <img src="logo.png" alt="Logo de QuizZink">
+            <span>QuizZink</span>
+        </div>
+
+        <!-- Enlaces -->
+        <ul class="nav-links">
+            <li><a href="quizzink.htm">Inicio</a></li>
+            <li><a href="Objetivos.htm">El Objetivo del proyecto</a></li>
+            <li><a href="aventura.htm">Empieza tu aventura</a></li>
+            <li><a href="Equipo.htm">Equipo</a></li>
+            <li><a href="preguntas.htm">Preguntas frecuentes</a></li>
+        </ul>
+
+        <!-- Botón Modo Oscuro -->
+        <button class="toggle-dark-mode" onclick="toggleDarkMode()">🌙 Modo Oscuro</button>
+    </nav>
+
+    <p></p>
+
+    <header>
+        PREGUNTAS FRECUENTES
+    </header>
+
+    <p></p>
+
+    <section class="features">
+        <div class="feature-card">
+            <h2>1. ¿Es necesario acceso a Internet?</h2>
+            <p>No, la aplicación es totalmente <em>offline</em> y no requiere en ningún momento ninguna funcionalidad que lo necesite para funcionar.</p>
+        </div>
+        <div class="feature-card">
+            <h2>2. ¿Almacena algún tipo de dato de tipo personal?</h2>
+            <p>En absoluto, QuizZink no hace uso de ninguna Base de Datos ni guarda ningún tipo de información de menores y/o adultos.</p>
+        </div>
+        <div class="feature-card">
+            <h2>3. ¿Cómo se da <em>feedback</em> al equipo de desarrollo?</h2>
+            <p>Mediante un archivo de auditoría (<em>log</em>) únicamente se lleva un control del tiempo de uso en un dispositivo y qué avatar es el más popular entre los jóvenes, para mejorar y añadir funcionalidades nuevas.</p>
+        </div>
+        <div class="feature-card">
+            <h2>4. ¿En qué dispositivos puedo usarla?</h2>
+            <p>Presentamos copias estables tanto en diferentes versiones de Windows (XP, 7 y hasta 11) y MacOS por el momento. Por el momento no se dispone de versiones oficiales en Sistemas Operativos tipo UNIX/Linux como Guadalinex ni Android o iOS.</p>
+        </div>
+        <div class="feature-card">
+            <h2>5. ¿Durante cuánto tiempo recomendáis usarla?</h2>
+            <p>Al ser una plataforma de simple refuerzo académico, cada alumno de primaria es libre (bajo la supervisión de un adulto o profesor) del uso que le da a la misma y de una forma responsable. Para situaciones específicas (sobreexposición a pantallas, epilepsia, módulo de infantil y necesidades específicas) consulte primero a su médico familiar para evitar problemas mayores.</p>
+        </div>
+        <div class="feature-card">
+            <h2>6. ¿Presenta riesgo?</h2>
+            <p>Como cualquier otro (<em>Software</em>), éste puede presentar posibles riesgos. Puedes consultar la lista actualizada de riesgos de la plataforma así como su plan de actuación en la documentación oficial que puedes encontrar junto con el enlace a la descarga.</p>
+        </div>
+            <div class="feature-card">
+            <h2>7. ¿Cómo puedo presentar quejas/agradecimientos?</h2>
+            <p>Puedes hacerlo en quizzink.mantenimiento@gmail.com. Estaremos encantados de oírte.</p>
+        </div>
+        <div class="feature-card">
+            <h2>8. ¿Dónde puedo encontrar la documentación oficial?</h2>
+            <p>En la misma página que redirige al sitio web oficial para su descarga, encontrarás la documentación de manera gratuita.</p>
+        </div>
+        <div class="feature-card">
+            <h2>9. La aplicación presenta errores y no puedo usarla adecuadamente</a></h2>
+            <p>Lamentamos oír eso, puedes dejar tus comentarios, así como una descripción concisa de los pasos que has realizado para encontrar ese error a yedra.garsanchez@alum.uca.es o a quizzink.mantenimiento@gmail.com.</p>
+        </div>
+        <div class="feature-card">
+            <h2>10. ¿Necesito más información detallada sobre QuizZink</h2>
+            <p>Puedes escribirnos en quizzink.mantenimiento@gmail.com para más consultas de carácter general sobre la aplicación.</p>
+        </div>
+    </section>
+
+    <div class="download-section">
+        <h1>¿Alguna duda más?</h1>
+        <h2>Escibe un correo a <span style="color: purple;">quizzink.mantenimiento@gmail.com </span> o resonde a la siguiente encuesta</h2>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScx1rxnXFFKpyHTJGCeeZVDnE8wFREXxX8gW3DwHIKj7ItQDA/viewform?usp=sf_link" style="display: inline-block; padding: 10px 20px; background-color: #000000; color: rgb(255, 255, 255); text-decoration: none; border-radius: 5px;">DUDAS</a>
+        <div class="map">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3205.6955220604245!2d-6.2016160000000005!3d36.5373394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x152f79854b8f0de1%3A0x8d075bd9e5895558!2sEscuela%20Superior%20de%20Ingenier%C3%ADa!5e0!3m2!1ses!2ses!4v1733775065132!5m2!1ses!2ses" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+        </div>
+    </div>
+
+    <footer>
+    Gmail: quizzink.mantenimiento@gmail.com                  Instagram: @quizzink
+    </footer>
+
+    <script>
+        function toggleDarkMode() {
+            const body = document.body;
+            const navbar = document.querySelector('.navbar');
+            const header = document.querySelector('header');
+            const footer = document.querySelector('footer');
+
+            body.classList.toggle('dark-mode');
+            navbar.classList.toggle('dark-mode');
+            header.classList.toggle('dark-mode');
+            footer.classList.toggle('dark-mode');
+
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                localStorage.setItem('darkMode', 'disabled');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const darkMode = localStorage.getItem('darkMode');
+            if (darkMode === 'enabled') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.navbar').classList.add('dark-mode');
+                document.querySelector('header').classList.add('dark-mode');
+                document.querySelector('footer').classList.add('dark-mode');
+            }
+        });
+    </script>
+
+</body>
+</html>

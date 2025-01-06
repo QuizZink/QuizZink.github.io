@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objetivos</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&display=swap');
+
+        body {
+            font-family: "Comfortaa", serif;
+            margin: 1.5;
+            padding: 0;
+            background-color: #a2d0f5;
+            color: black;
+            text-align: justify;
+            transition: background-color 0.5s, color 0.5s;
+        }
+
+        body.dark-mode {
+            background-color: #27323c;
+            color: white;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #007bff; /* Azul */
+            padding: 10px 20px;
+            color: rgb(0, 0, 0);
+            border-radius: 10px;
+        }
+
+        .navbar.dark-mode {
+            background-color: #003670;
+            color: rgb(255, 255, 255);
+        }
+
+        .navbar .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .logo img {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+
+        .navbar .logo span {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .navbar .nav-links {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .navbar .nav-links li {
+            margin: 0 15px;
+        }
+
+        .navbar .nav-links a {
+            color: rgb(0, 15, 92);
+            text-decoration: none;
+            font-size: 1em;
+        }
+
+        .navbar .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        .dark-mode .navbar .nav-links a {
+            color: rgb(255, 255, 255);
+        }
+
+        .dark-mode .feature-card {
+            background-color: #222222;
+            color: white;
+            box-shadow: 5px 7px 10px violet;
+        }
+
+        .dark-mode footer{
+            background-color: #290055;
+            color: white;
+        }
+
+        .dark-mode .carousel {
+            background-color: #333333;
+        }
+
+        header {
+            background-color: #7700ff;
+            padding: 40px;
+            text-align: center;
+            color: #000000;
+            font-size: 5em;
+            border-radius: 10px;
+        }
+
+        .dark-mode header {
+            background-color: #25004f;
+            color: white;
+        }
+
+        .toggle-dark-mode {
+            margin-left: auto;
+            padding: 10px;
+            cursor: pointer;
+            background-color: white;
+            color: black;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .dark-mode .toggle-dark-mode {
+            background-color: black;
+            color: white;
+        }
+
+        .heroaux {
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(135deg, #cbb1ee, #8669aa);
+            color: rgb(11, 11, 11);
+            border-radius: 10px;
+        }
+
+        .heroaux h1 {
+            font-size: 2.5em;
+        }
+
+        .heroaux p {
+            font-size: 1.2em;
+            margin: 20px 0;
+        }
+
+        .dark-mode .heroaux{
+            background-color:(135deg, #5a4f69, #292134);
+            color: white;
+        }
+
+        .dark-mode .hero{
+            background: linear-gradient(135deg, #43325a, #422564);
+            color: white;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(135deg, #9e75d8, #8048c4);
+            color: rgb(0, 0, 0);
+            border-radius: 10px;
+        }
+
+        .hero h1 {
+            font-size: 2.5em;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            margin: 20px 0;
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+            gap: 20px;
+            border-radius: 10px;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 5px 7px 10px black;
+            padding: 20px;
+            text-align: center;
+            width: 300px;
+            border-radius: 10px;
+        }
+
+        .feature-card img {
+            max-width: 100px;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            background-color: #7700ff;
+            text-align: center;
+            padding: 10px;
+            color: #000000;
+            margin-top: 30px;
+            border-radius: 10px;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .title {
+            text-align: left;
+            color: #000000;
+        }
+
+        .dark-mode .title{
+            color: #ffffff;
+        }
+
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+
+        .content img {
+            width: 48%;
+            border-radius: 5px;
+        }
+
+        .text {
+            width: 48%;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        .chalkboard {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .chalkboard ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .chalkboard ul li {
+            margin: 10px 0;
+        }
+
+        .chalkboard ul li::before {
+            content: "✔ ";
+            color: #32cd32;
+        }
+
+        .success {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        ol {
+            list-style-position: inside; /* Hace que el número esté dentro del contenedor */
+            padding-left: 0; /* Elimina el relleno izquierdo predeterminado */
+        }
+
+        li {
+            margin-left: 0; /* Elimina el margen izquierdo predeterminado */
+         }
+         
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <!-- Logo -->
+        <div class="logo">
+            <img src="logo.png" alt="Logo de QuizZink">
+            <span>QuizZink</span>
+        </div>
+
+        <!-- Enlaces -->
+        <ul class="nav-links">
+            <li><a href="quizzink.htm">Inicio</a></li>
+            <li><a href="Objetivos.htm">El Objetivo del proyecto</a></li>
+            <li><a href="aventura.htm">Empieza tu aventura</a></li>
+            <li><a href="Equipo.htm">Equipo</a></li>
+            <li><a href="preguntas.htm">Preguntas frecuentes</a></li>
+        </ul>
+
+        <!-- Botón Modo Oscuro -->
+        <button class="toggle-dark-mode" onclick="toggleDarkMode()">🌙 Modo Oscuro</button>
+    </nav>
+
+    <p></p>
+    
+    <header>
+        EL OBJETIVO DEL PROYECTO
+    </header>
+    <div class="container">
+        <h1 class="title">Alcance y Objetivo</h1>
+        <div class="content">
+            <img src="claseingles.jpg" alt="Aula decorada">
+            <div class="text">
+                <p>El objetivo del desarrollo radica en brindar un refuerzo educativo excepcional a los niños de primaria de todo el país.</p>
+                <p>Nuestro cliente vio la necesidad que tiene la población infantil, y se nos propuso el desarrollo, como una oportunidad para mejorar la educación en esta importante etapa en nuestro país, mediante una metodología determinada.</p>
+                <p>En los últimos años, la educación española se ha enfrentado a desafíos significativos, entre ellos el impacto de la pandemia de COVID-19, que agudizó la brecha educativa y dejó en evidencia la falta de recursos para ofrecer un apoyo personalizado a cada estudiante.</p>
+                <img src="ingless.jpg" alt="Aula decorada">
+                <img src="ingble.jpg" alt="Aula decorada">
+            </div>
+        </div>
+    </div>
+    
+    <header>
+        ¿En qué punto nos encontramos?
+    </header>
+    <p>Nos complace anunciar que la implantación de la plataforma educativa de refuerzo <strong>se va a ampliar:</strong>  </p>
+    <p>Debido a la gran recepción en múltiples Comunidades Autónomas y las <strong>imperantes necesidades</strong> de ciertos jefes de escuelas, QuizZink recibirá una expansión muy pronto, para vuestra suerte.</p>
+    <p>Las siguientes se describen a continuación</p>
+    <section class="features">
+        <div class="feature-card">
+            <img src="bandera.jpg">
+            <h2>Bilingüismo</h2>
+            <p>El auge del bilingüismo en centros educativos del <strong>País Vasco, Cataluña y Navarra</strong> hace posible esta función para todos los centros escolares de España. ¡Pronto disfrutarás de QuizZink también en Inglés!.</p>
+        </div>
+        <div class="feature-card">
+            <img src="oso.jpg">
+            <h2>Modulos infantil</h2>
+            <p>La etapa de los <strong> 5 años </strong>es un periodo muy delicado que QuizZink podrá tratar perfectamente pero siempre con cuidado y respeto.</p>
+            <p>¡Estate segur@ de que puedes usar la plataforma con tus bebes!</p>
+        </div>
+        <div class="feature-card">
+            <img src="necedidades.jpg">
+            <h2>Necesidades +</h2>
+            <p>El aprendizaje es un <strong>derecho</strong> de todos.</p>
+            <p>Hemos detectado este problema en las aulas y no podemos dejar esta oportunidad, para que todos aprendan <strong>sean cuales sean sus necesidades</strong>.</p>
+        </div>
+    </section>
+
+    <div class="hero">
+        <h1>¿Qué más puedes encontrar?</h1>
+        <p>Actualmente la plataforma también está al tanto de otra situaciones que se pueden dar en las aulas como son:</p>
+        <ol>
+            <li><strong>Personas con dislexia</strong>: Fuente personalizable para paliar la dislexia dentro de QuizZink.</li>
+            <li><strong>Personas con dalton</strong>: En ningún momento se hará alusión. Los estudiantes pueden identificarse fácilmente con un avatar</li>
+            <li><strong>Estadísticas</strong>: Ver el porcentaje de aciertos/fallos</li>
+        </ol>
+          
+    </div>
+
+
+    <footer>
+    Gmail: quizzink.mantenimiento@gmail.com                  Instagram: @quizzink
+    </footer>
+
+    <script>
+        function toggleDarkMode() {
+            const body = document.body;
+            const navbar = document.querySelector('.navbar');
+            const header = document.querySelector('header');
+            const footer = document.querySelector('footer');
+
+            body.classList.toggle('dark-mode');
+            navbar.classList.toggle('dark-mode');
+            header.classList.toggle('dark-mode');
+            footer.classList.toggle('dark-mode');
+
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                localStorage.setItem('darkMode', 'disabled');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const darkMode = localStorage.getItem('darkMode');
+            if (darkMode === 'enabled') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.navbar').classList.add('dark-mode');
+                document.querySelector('header').classList.add('dark-mode');
+                document.querySelector('footer').classList.add('dark-mode');
+            }
+        });
+    </script>
+
+</body>
+</html>
