@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizZink</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&display=swap');
+
+        body {
+            font-family: "Comfortaa", serif;
+            margin: 1.5;
+            padding: 0;
+            background-color: #a2d0f5;
+            color: black;
+            text-align: justify;
+            transition: background-color 0.5s, color 0.5s;
+        }
+
+        body.dark-mode {
+            background-color: #27323c;
+            color: white;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #007bff; /* Azul */
+            padding: 10px 20px;
+            color: rgb(0, 0, 0);
+            border-radius: 10px;
+        }
+
+        .navbar.dark-mode {
+            background-color: #003670;
+            color: rgb(255, 255, 255);
+        }
+
+        .navbar .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .logo img {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+
+        .navbar .logo span {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .navbar .nav-links {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .navbar .nav-links li {
+            margin: 0 15px;
+        }
+
+        .navbar .nav-links a {
+            color: rgb(0, 15, 92);
+            text-decoration: none;
+            font-size: 1em;
+        }
+
+        .navbar .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        .dark-mode .navbar .nav-links a {
+            color: rgb(255, 255, 255);
+        }
+
+        .dark-mode .feature-card {
+            background-color: #222222;
+            color: white;
+            box-shadow: 5px 7px 10px violet;
+        }
+
+        .dark-mode footer{
+            background-color: #290055;
+            color: white;
+        }
+
+        .dark-mode .carousel {
+            background-color: #333333;
+        }
+
+        header {
+            background-color: #7700ff;
+            padding: 40px;
+            text-align: center;
+            color: #000000;
+            font-size: 5em;
+            border-radius: 10px;
+        }
+
+        .dark-mode header {
+            background-color: #25004f;
+            color: white;
+        }
+
+        .toggle-dark-mode {
+            border-radius: 10px;
+            margin-left: auto;
+            padding: 10px;
+            cursor: pointer;
+            background-color: white;
+            color: black;
+            border: none;
+        }
+
+        .dark-mode .toggle-dark-mode {
+            background-color: black;
+            color: white;
+        }
+
+        .heroaux {
+            border-radius: 10px;
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(135deg, #cbb1ee, #8669aa);
+            color: rgb(0, 0, 0);
+        }
+
+        .dark-mode .heroaux{
+            background-color:(135deg, #5a4f69, #292134);
+            color: white;
+        }
+
+        .dark-mode .hero{
+            background: linear-gradient(135deg, #43325a, #422564);
+            color: white;
+        }
+
+        .heroaux h1 {
+            font-size: 2.5em;
+        }
+
+        .heroaux p {
+            font-size: 1.2em;
+            margin: 20px 0;
+        }
+
+        .hero {
+            border-radius: 10px;
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(135deg, #9e75d8, #8048c4);
+            color: rgb(0, 0, 0);
+        }
+
+        .hero h1 {
+            font-size: 2.5em;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            margin: 20px 0;
+        }
+
+        .hero a{
+            display: inline-block; 
+            padding: 10px 20px; 
+            background-color: #ffffff; 
+            color: rgb(0, 0, 0); 
+            text-decoration: none; 
+            border-radius: 5px;
+        }
+        
+        .dark-mode .hero a{
+            color: white;
+            background-color: #222222;
+        }
+
+        .features {
+            border-radius: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        .dark-mode .features{
+            background-color: #27323c;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 15px; /* Cambiar a 10px o 15px para redondear más */
+            box-shadow: 5px 7px 10px black;
+            padding: 20px;
+            text-align: center;
+            width: 300px;
+        }
+
+        .feature-card img {
+            max-width: 170px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+        }
+
+        footer {
+            border-radius: 10px;
+            background-color: #7700ff;
+            text-align: center;
+            padding: 10px;
+            color: #000000;
+            margin-top: 30px;
+        }
+        
+        .carousel {
+            border-radius: 10px;
+            position: relative;
+            max-width: 100%; /* Evita que el carrusel se desborde */
+            margin: 0 auto; /* Centra el carrusel */
+            overflow: hidden; /* Oculta lo que se salga del carrusel */
+            height: 400px; /* Altura fija para el carrusel */
+            margin-bottom: 50px; /* Espacio entre el carrusel y lo siguiente */
+        }
+
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-images img {
+            width: 100%;
+            height: 400px; /* Ajusta para unificar la altura */
+            object-fit: cover; /* Asegura que las imágenes no se deformen */
+        }
+
+        .carousel-controls {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            pointer-events: none; /* Evita interferencias con las imágenes */
+        }
+
+        .carousel-button {
+            pointer-events: auto; /* Permite clics */
+            position: absolute;
+            top: 50%; /* Centra verticalmente */
+            transform: translateY(-50%); /* Ajusta el centrado exacto */
+            background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2em; /* Tamaño de las flechas */
+            cursor: pointer;
+            z-index: 2; /* Asegura que estén encima */
+        }
+
+
+        .carousel-button:first-of-type {
+            left: 10px; /* Flecha izquierda */
+        }
+
+        .carousel-button:last-of-type {
+            right: 10px; /* Flecha derecha */
+        }
+
+        section {
+            margin-top: 50px; /* Espacio entre el carrusel y el contenido posterior */
+            padding: 20px;
+            text-align: justify;
+            background-color: #a2d0f5; /* Coincide con el fondo del cuerpo */
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <!-- Logo -->
+        <div class="logo">
+            <img src="logo.png" alt="Logo de QuizZink">
+            <span>QuizZink</span>
+        </div>
+
+        <!-- Enlaces -->
+        <ul class="nav-links">
+            <li><a href="quizzink.htm">Inicio</a></li>
+            <li><a href="Objetivos.htm">El Objetivo del proyecto</a></li>
+            <li><a href="aventura.htm">Empieza tu aventura</a></li>
+            <li><a href="Equipo.htm">Equipo</a></li>
+            <li><a href="preguntas.htm">Preguntas frecuentes</a></li>
+        </ul>
+
+        <!-- Botón Modo Oscuro -->
+        <button class="toggle-dark-mode" onclick="toggleDarkMode()">🌙 Modo Oscuro</button>
+    </nav>
+
+    <p></p>
+
+    <header>
+        ¡Bienvenido a QuizZink!
+    </header>
+
+    <p></p>
+
+    <div class="hero">
+        <h1>La nueva y divertida forma de aprender juntos</h1>
+        <p>Una app divertida y educativa diseñada para niños de primaria.</p>
+        <a href="https://drive.google.com/file/d/1oARwRIP9xiFRDx7H7KGSZkf5tNZpCunK/view?usp=sharing">¡Explora Ahora!</a>
+    </div>
+
+    <section class="features">
+        <div class="feature-card">
+            <img src="gamificaciion.jpg">
+            <h2>Gamificación</h2>
+            <p>A través de juegos y retos interactivos, QuizZink motiva a los estudiantes a seguir aprendiendo de una manera divertida y atractiva.</p>
+        </div>
+        <div class="feature-card">
+            <img src="aprendizajepersonalizado.jpg">
+            <h2>Aprendizaje personalizado</h2>
+            <p>Ofrece cuestionarios adaptativos que ajustan el nivel de dificultad en función del progreso del alumno y a sus necesidades personales.</p>
+        </div>
+        <div class="feature-card">
+            <img src="retroalimentacion.jpg">
+            <h2>Retroalimentación inmediata</h2>
+            <p>Proporciona respuestas detalladas y explicaciones al instante, lo cual ayuda a los estudiantes a comprender sus errores y reforzar sus conocimientos.</p>
+        </div>
+        <div class="feature-card">
+            <img src="evaluaciones.jpg">
+            <h2>Evaluaciones progresivas</h2>
+            <p>Los cuestionarios están diseñados en niveles progresivos para fomentar un aprendizaje gradual y sólido, manteniendo a los estudiantes motivados y comprometidos. </p>
+        </div>
+    </section>
+
+    <p>La metodología de QuizZink se centra en el aprendizaje a través de preguntas de diferentes niveles y tipos, las cuales cubren las materias fundamentales durante todos los ciclos de la educación primaria en España, desde 1º de primaria hasta 6º de primaria. Actualmente ofrecemos refuerzo en:</p>
+    <p><strong>Matemáticas, Lengua, Ciencias Naturales, Ciencias Sociales, Plástica, Educación Física, Música e Inglés.</strong></p>
+    <p>Estas preguntas son diseñadas por expertos en educación y están pensadas para estimular el pensamiento crítico y la comprensión, mientras refuerzan los conceptos básicos en cada área de estudio. </p>
+
+    <div class="carousel">
+        <div class="carousel-images">
+            <img src="carusel1.jpg" alt = "Naturales">
+            <img src="carusel2.jpg" alt = "Arte">
+            <img src="carusel3.jpg" alt = "Ciencias">
+            <img src="carusel4.jpg" alt = "Educación fisica">
+            <img src="carusel5.jpg" alt = "Sociales">
+            <img src="carusel6.jpg" alt = "Musica">
+            <img src="carusel7.jpg" alt = "Inglés">
+        </div>
+        <div class="carousel-controls">
+            <button class="carousel-button" onclick="moveSlide(-1)">❮</button>
+            <button class="carousel-button" onclick="moveSlide(1)">❯</button>
+        </div>
+    </div>
+    
+    <p style=" font-size: 20px"> Con QuizZink, los estudiantes de primaria encantrarán un espacio seguro para reforzar sus conocimientos y habilidades</p>
+    <p>Contribuirá a mejorar su rendimiento académico y confianza. Además, al fomentar la autonomía en el estudio y ofrecer recursos de aprendizaje dinámicos, edUCA se convierte en una herramienta educativa fundamental para el desarrollo integral de cada niño en su proceso escolar. </p>
+    
+    <div class="hero">
+        <p style=" font-size: 40px"> ¿POR QUÉ QuizZink?</p>
+        <p> La motivación para crear QuizZink surge de la necesidad urgente de <strong>mejorar el refuerzo académico</strong> en la educación primaria en España, especialmente en un contexto donde los resultados educativos <strong>reflejan desigualdades</strong> en el aprendizaje y un desfase en habilidades clave. </p>
+    </div>
+
+    <p> Además, <strong> niños presentan dificultades para mantener el ritmo en ciertas materias</strong>, lo que afecta su confianza y rendimiento a largo plazo. En este contexto, QuizZink se propone como una herramienta accesible y efectiva para brindar a los alumnos de primaria el <strong>apoyo necesario para reforzar sus conocimientos en un entorno atractivo y flexible</strong>, donde cada niño pueda avanzar a su propio ritmo y cubrir lagunas de aprendizaje de una manera motivadora y accesible <strong>desde el hogar</strong>. </p>
+    <div class="hero">
+        <p style="font-size: 40px">¿TODO LISTO?</p>
+        <p> DESCARGA LA ÚLTIMA VERSIÓN DE <strong>QuizZink</strong></p>
+        <a href="https://drive.google.com/file/d/1I5PL8BYgv7E3VpJguLUFUHZeS6BjGyKL/view?usp=drive_link">WINDOWS</a>
+        <a href="https://drive.google.com/file/d/1dLv77q0CHfy9loY-fQUgTRgBu4R6akqr/view?usp=drive_link">LINUX</a>
+        <a href="https://drive.google.com/file/d/1ZHqK-6Rt1GSAaEzJcwIA3i-wW5HOGnB-/view?usp=drive_link">ANDROID</a>
+    </div>
+
+    <p></p>
+
+    <div class="hero">
+        <h1>¿Nos ayudas?</h1>
+        <p> Reyenando esta encuesta de satisfacción.</p>
+        <a href="https://forms.gle/NdyeQYMhqKDmWhm99" >ENCUESTA</a>
+    </div>
+
+
+
+    </div>
+    <footer>
+    Gmail: quizzink.mantenimiento@gmail.com            Instagram: @quizzink
+    </footer>
+
+    <script>
+        function toggleDarkMode() {
+            const body = document.body;
+            const navbar = document.querySelector('.navbar');
+            const header = document.querySelector('header');
+            const footer = document.querySelector('footer');
+
+            body.classList.toggle('dark-mode');
+            navbar.classList.toggle('dark-mode');
+            header.classList.toggle('dark-mode');
+            footer.classList.toggle('dark-mode');
+
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                localStorage.setItem('darkMode', 'disabled');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const darkMode = localStorage.getItem('darkMode');
+            if (darkMode === 'enabled') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.navbar').classList.add('dark-mode');
+                document.querySelector('header').classList.add('dark-mode');
+                document.querySelector('footer').classList.add('dark-mode');
+            }
+        });
+    </script>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-images img');
+
+        function moveSlide(step) {
+            currentSlide += step;
+            if (currentSlide >= slides.length) currentSlide = 0;
+            if (currentSlide < 0) currentSlide = slides.length - 1;
+            updateCarousel();
+        }
+
+        function updateCarousel() {
+            const offset = -currentSlide * 100;
+            document.querySelector('.carousel-images').style.transform = `translateX(${offset}%)`;
+        }
+    </script>
+
+</body>
+</html>
