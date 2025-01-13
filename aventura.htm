@@ -176,15 +176,18 @@
             background: linear-gradient(135deg, #9e75d8, #8048c4);
             color: rgb(0, 0, 0);
             border-radius: 10px;
+            width: 100%; /* Ocupa todo el ancho del contenedor */
+            box-sizing: border-box; /* Incluye padding en el ancho total */
         }
 
         .hero h1 {
             font-size: 2.5em;
+            margin: 10px 0; /* Espaciado dinámico */
         }
 
         .hero p {
-            font-size: 1.2em;
-            margin: 20px 0;
+            font-size: 3.5vw; /* Ajuste de texto para pantallas pequeñas */
+            margin: 15px 0;
         }
 
         .features {
@@ -389,18 +392,33 @@
         .navbar .nav-links li {
             margin: 10px 0; /* Espacio entre enlaces */
         }
-
-        .hero{
-            width: 100%; /* Asegura que el contenedor ocupe todo el ancho */
-            height: auto;
-            align-items: center;
+        .hero {
+            padding: 15px 10px;
         }
 
-        .hero h1, .heroaux h1 {
+        .hero h1 {
+            font-size: 4vw; /* Reduce aún más el tamaño del título */
+        }
+
+        .hero p {
+            font-size: 3vw;
+        }
+
+        .content img {
+            width: 100%; /* Escala las imágenes al ancho disponible */
+            height: auto; /* Mantén la proporción */
+        }
+
+        .content {
+            flex-direction: column; /* Coloca los elementos en columna */
+            gap: 10px; /* Espaciado más pequeño entre elementos */
+        }
+
+        .heroaux h1 {
             font-size: 1.8em; /* Reduce el tamaño del texto */
         }
 
-        .hero p, .heroaux p {
+        .heroaux p {
             font-size: 1em; /* Ajusta el tamaño del texto para móviles */
         }
 
@@ -452,12 +470,23 @@
         .navbar .nav-links li {
             margin: 10px 0; /* Espacio entre enlaces */
         }
+        .hero {
+            padding: 10px;
+        }
 
-        .hero h1, .heroaux h1 {
+        .hero h1 {
+            font-size: 3.5vw;
+        }
+
+        .hero p {
+            font-size: 2.5vw;
+        }
+
+        .heroaux h1 {
             font-size: 1.8em; /* Reduce el tamaño del texto */
         }
 
-        .hero p, .heroaux p {
+        .heroaux p {
             font-size: 1em; /* Ajusta el tamaño del texto para móviles */
         }
 
