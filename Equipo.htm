@@ -98,11 +98,12 @@
 
         header {
             background-color: #7700ff;
-            padding: 40px;
+            padding: 20px 10px; /* Reduce el padding para que no ocupe demasiado espacio */
             text-align: center;
             color: #000000;
-            font-size: 5em;
+            font-size: 8vw; /* El tamaño de la fuente se ajusta al ancho de la pantalla */
             border-radius: 10px;
+            word-wrap: break-word;
         }
 
         .dark-mode header {
@@ -313,6 +314,12 @@
         
 
     @media (max-width: 768px) {
+        
+        header {
+            font-size: 6vw; /* Reduce el tamaño de fuente para móviles */
+            padding: 15px 10px; /* Ajusta el espacio interno */
+        }
+    
         .navbar {
             flex-wrap: wrap; /* Permite que los elementos se acomoden en varias líneas */
         }
