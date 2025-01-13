@@ -109,12 +109,11 @@
 
         header {
             background-color: #7700ff;
-            padding: 20px 10px; /* Reduce el padding para que no ocupe demasiado espacio */
+            padding: 40px;
             text-align: center;
             color: #000000;
-            font-size: 8vw; /* El tamaño de la fuente se ajusta al ancho de la pantalla */
+            font-size: 5em;
             border-radius: 10px;
-            word-wrap: break-word;
         }
 
         .dark-mode header {
@@ -288,21 +287,17 @@
         section{
             display: flex;
             justify-content: center;
-            flex-wrap: wrap; /* Permite que los avatares se acomoden en filas múltiples */
-            width: 100%; /* Ocupa todo el ancho disponible */
-            max-width: 800px; /* Limita el ancho máximo para pantallas grandes */
-            margin: 20px auto; /* Centra el section horizontalmente */
-            gap: 15px; /* Espacio entre las imágenes */
+            width: 800px;
+            height: 430px;
+            margin: 0 auto;
         }
 
         section img{
-            width: calc(20% - 10px); /* Cada imagen ocupa el 20% del ancho con espacio entre ellas */
-            max-width: 150px; /* Tamaño máximo para pantallas grandes */
+            width: 150px;
             flex-grow: 1;
-            object-fit: cover; /* Ajusta las imágenes para evitar deformaciones */
-            border-radius: 10px;
-            opacity: 0.6;
-            transition: all 0.5s ease; /* Animación para el hover */
+            object-fit: cover;
+            opacity: .6;
+            transition: .5s ease;
             cursor: pointer;
         }
 
@@ -311,7 +306,6 @@
             width: 400px;
             opacity: 1;
             filter: contrast(120%);
-            transform: scale(1.1);
         }
 
         section img.selected {
@@ -370,12 +364,12 @@
         
 
     @media (max-width: 768px) {
-        
+
         header {
             font-size: 6vw; /* Reduce el tamaño de fuente para móviles */
             padding: 15px 10px; /* Ajusta el espacio interno */
         }
-    
+
         .navbar {
             flex-wrap: wrap; /* Permite que los elementos se acomoden en varias líneas */
         }
@@ -406,14 +400,61 @@
             font-size: 1em;
         }
 
+        section {
+            width: 100%; /* Asegura que el contenedor ocupe todo el ancho */
+            height: auto; /* Ajusta automáticamente la altura */
+        }
+
         section img {
-            width: calc(33.33% - 10px); /* Cada imagen ocupa un tercio del ancho disponible */
+            width: 100px; /* Reduce el tamaño de las imágenes */
         }
     }
-
+    /* Ajustes para pantallas pequeñas (móviles) */
     @media (max-width: 480px) {
+        header {
+            font-size: 6vw; /* Reduce el tamaño de fuente para móviles */
+            padding: 15px 10px; /* Ajusta el espacio interno */
+        }
+
+        .navbar {
+            flex-wrap: wrap; /* Permite que los elementos se acomoden en varias líneas */
+        }
+
+        .navbar .nav-links {
+            flex-direction: column; /* Coloca los enlaces en una columna */
+            align-items: center;
+        }
+
+        .navbar .nav-links li {
+            margin: 10px 0; /* Espacio entre enlaces */
+        }
+
+        .hero h1, .heroaux h1 {
+            font-size: 1.8em; /* Reduce el tamaño del texto */
+        }
+
+        .hero p, .heroaux p {
+            font-size: 1em; /* Ajusta el tamaño del texto para móviles */
+        }
+
+        .feature-card {
+            width: 100%; /* Haz que las tarjetas ocupen todo el ancho */
+        }
+
+        .carousel-controls button {
+            padding: 5px 10px; /* Reduce el tamaño de los botones en el carrusel */
+            font-size: 1em;
+        }
+
+        section {
+            width: 100%; /* Contenedor ocupa todo el ancho del viewport */
+            padding: 10px; /* Añade espacio interno para evitar que las imágenes toquen los bordes */
+            gap: 8px; /* Reduce el espacio entre imágenes */
+        }
+
         section img {
-            width: calc(50% - 10px); /* Cada imagen ocupa la mitad del ancho */
+            width: 80px; /* Tamaño más pequeño para móviles */
+            height: auto; /* Mantiene proporción */
         }
     }
          
