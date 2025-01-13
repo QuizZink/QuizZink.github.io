@@ -274,6 +274,38 @@
         li {
             margin-left: 0; /* Elimina el margen izquierdo predeterminado */
          }
+
+    @media (max-width: 768px) {
+        .navbar {
+            flex-wrap: wrap; /* Permite que los elementos se acomoden en varias líneas */
+        }
+
+        .navbar .nav-links {
+            flex-direction: column; /* Coloca los enlaces en una columna */
+            align-items: center;
+        }
+
+        .navbar .nav-links li {
+            margin: 10px 0; /* Espacio entre enlaces */
+        }
+
+        .hero h1, .heroaux h1 {
+            font-size: 1.8em; /* Reduce el tamaño del texto */
+        }
+
+        .hero p, .heroaux p {
+            font-size: 1em; /* Ajusta el tamaño del texto para móviles */
+        }
+
+        .feature-card {
+            width: 100%; /* Haz que las tarjetas ocupen todo el ancho */
+        }
+
+        .carousel-controls button {
+            padding: 5px 10px; /* Reduce el tamaño de los botones en el carrusel */
+            font-size: 1em;
+        }
+    }
          
     </style>
 </head>
