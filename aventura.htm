@@ -3,6 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <!-- Agrega la siguiente línea para forzar la vista de ordenador -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1">
+
+
     <title>Aventura</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&display=swap');
@@ -402,11 +409,11 @@
 
         section {
             width: 100%; /* Asegura que el contenedor ocupe todo el ancho */
-            height: 100%; /* Ajusta automáticamente la altura */
+            height: auto; /* Ajusta automáticamente la altura */
         }
 
         section img {
-            width: 100%; /* Reduce el tamaño de las imágenes */
+            width: 100px; /* Reduce el tamaño de las imágenes */
         }
     }
     /* Ajustes para pantallas pequeñas (móviles) */
@@ -448,11 +455,11 @@
 
         section {
             width: 100%; /* Contenedor ocupa todo el ancho del viewport */
-            height: 100%;
+            height: 100px;
         }
 
         section img {
-            width: 100%; /* Tamaño más pequeño para móviles */
+            width: 80px; /* Tamaño más pequeño para móviles */
         }
     }
          
