@@ -15,6 +15,7 @@
             color: black;
             text-align: justify;
             transition: background-color 0.5s, color 0.5s;
+            flex-wrap: wrap;
         }
 
         body.dark-mode {
@@ -30,16 +31,19 @@
             padding: 10px 20px;
             color: rgb(0, 0, 0);
             border-radius: 10px;
+            flex-wrap: wrap;
         }
 
         .navbar.dark-mode {
             background-color: #003670;
             color: rgb(255, 255, 255);
+            flex-wrap: wrap;
         }
 
         .navbar .logo {
             display: flex;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         .navbar .logo img {
@@ -47,11 +51,13 @@
             height: 30px;
             margin-right: 10px;
             border-radius: 50%;
+            flex-wrap: wrap;
         }
 
         .navbar .logo span {
             font-size: 1.2em;
             font-weight: bold;
+            flex-wrap: wrap;
         }
 
         .navbar .nav-links {
@@ -59,24 +65,29 @@
             list-style: none;
             padding: 0;
             margin: 0;
+            flex-wrap: wrap;
         }
 
         .navbar .nav-links li {
             margin: 0 15px;
+            flex-wrap: wrap;
         }
 
         .navbar .nav-links a {
             color: rgb(0, 15, 92);
             text-decoration: none;
             font-size: 1em;
+            flex-wrap: wrap;
         }
 
         .navbar .nav-links a:hover {
             text-decoration: underline;
+            flex-wrap: wrap;
         }
 
         .dark-mode .navbar .nav-links a {
             color: rgb(255, 255, 255);
+            flex-wrap: wrap;
         }
 
         .dark-mode .feature-card {
@@ -281,9 +292,44 @@
             background-color: #a2d0f5; /* Coincide con el fondo del cuerpo */
         }
 
+    @media (max-width: 768px) {
+        .navbar {
+            flex-wrap: wrap; /* Permite que los elementos se acomoden en varias líneas */
+        }
+
+        .navbar .nav-links {
+            flex-direction: column; /* Coloca los enlaces en una columna */
+            align-items: center;
+        }
+
+        .navbar .nav-links li {
+            margin: 10px 0; /* Espacio entre enlaces */
+        }
+
+        .hero h1, .heroaux h1 {
+            font-size: 1.8em; /* Reduce el tamaño del texto */
+        }
+
+        .hero p, .heroaux p {
+            font-size: 1em; /* Ajusta el tamaño del texto para móviles */
+        }
+
+        .feature-card {
+            width: 100%; /* Haz que las tarjetas ocupen todo el ancho */
+        }
+
+        .carousel-controls button {
+            padding: 5px 10px; /* Reduce el tamaño de los botones en el carrusel */
+            font-size: 1em;
+        }
+    }
+
+
     </style>
 </head>
 <body>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <nav class="navbar">
         <!-- Logo -->
