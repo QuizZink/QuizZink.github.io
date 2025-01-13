@@ -288,17 +288,21 @@
         section{
             display: flex;
             justify-content: center;
-            width: 800px;
-            height: 430px;
-            margin: 0 auto;
+            flex-wrap: wrap; /* Permite que los avatares se acomoden en filas múltiples */
+            width: 100%; /* Ocupa todo el ancho disponible */
+            max-width: 800px; /* Limita el ancho máximo para pantallas grandes */
+            margin: 20px auto; /* Centra el section horizontalmente */
+            gap: 15px; /* Espacio entre las imágenes */
         }
 
         section img{
-            width: 150px;
+            width: calc(20% - 10px); /* Cada imagen ocupa el 20% del ancho con espacio entre ellas */
+            max-width: 150px; /* Tamaño máximo para pantallas grandes */
             flex-grow: 1;
-            object-fit: cover;
-            opacity: .6;
-            transition: .5s ease;
+            object-fit: cover; /* Ajusta las imágenes para evitar deformaciones */
+            border-radius: 10px;
+            opacity: 0.6;
+            transition: all 0.5s ease; /* Animación para el hover */
             cursor: pointer;
         }
 
@@ -307,6 +311,7 @@
             width: 400px;
             opacity: 1;
             filter: contrast(120%);
+            transform: scale(1.1);
         }
 
         section img.selected {
@@ -402,7 +407,13 @@
         }
 
         section img {
-            width: 30%; /* Ajusta el tamaño en pantallas más pequeñas */
+            width: calc(33.33% - 10px); /* Cada imagen ocupa un tercio del ancho disponible */
+        }
+    }
+
+    @media (max-width: 480px) {
+        section img {
+            width: calc(50% - 10px); /* Cada imagen ocupa la mitad del ancho */
         }
     }
          
