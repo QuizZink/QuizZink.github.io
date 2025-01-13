@@ -241,7 +241,12 @@
         }
 
         .text {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
             width: 48%;
+            max-width: 100%;
         }
 
         h2 {
@@ -281,7 +286,19 @@
 
         li {
             margin-left: 0; /* Elimina el margen izquierdo predeterminado */
-         }
+        }
+
+        .foto{
+            text-align: center;
+            border-radius: 10px;
+            flex-wrap: wrap;
+        }
+
+        .foto img{
+            width: 48%;
+            border-radius: 10px;
+            flex-wrap: wrap;
+        }
 
     @media (max-width: 768px) {
 
@@ -331,6 +348,26 @@
         .content {
             gap: 0.5rem;
         }
+
+        .text {
+            /* Ajustes específicos para móviles, si es necesario */
+            font-size: 0.8rem;
+            line-height: 1.5;
+        }
+
+        .foto {
+            width: 100%; /* Ocupa todo el ancho disponible en dispositivos móviles */
+            height: auto; /* Mantiene las proporciones */
+            border-radius: 5px;
+            flex-wrap: wrap;
+        }
+        .foto img{
+            width: 100%; /* Ocupa todo el ancho disponible en dispositivos móviles */
+            height: auto; /* Mantiene las proporciones */
+            border-radius: 10px;
+            flex-wrap: wrap;
+        }
+        
     }
     
          
@@ -364,19 +401,15 @@
     <header>
         EL OBJETIVO DEL PROYECTO
     </header>
-    <div class="container">
-        <h1 class="title">Alcance y Objetivo</h1>
-        <div class="content">
-            <div class="text">
-                <p>El objetivo del desarrollo radica en brindar un refuerzo educativo excepcional a los niños de primaria de todo el país.</p>
-                <p>Nuestro cliente vio la necesidad que tiene la población infantil, y se nos propuso el desarrollo, como una oportunidad para mejorar la educación en esta importante etapa en nuestro país, mediante una metodología determinada.</p>
-                <p>En los últimos años, la educación española se ha enfrentado a desafíos significativos, entre ellos el impacto de la pandemia de COVID-19, que agudizó la brecha educativa y dejó en evidencia la falta de recursos para ofrecer un apoyo personalizado a cada estudiante.</p>
+    <h1 class="title">Alcance y Objetivo</h1>
+            <p>El objetivo del desarrollo radica en brindar un refuerzo educativo excepcional a los niños de primaria de todo el país.</p>
+            <p>Nuestro cliente vio la necesidad que tiene la población infantil, y se nos propuso el desarrollo, como una oportunidad para mejorar la educación en esta importante etapa en nuestro país, mediante una metodología determinada.</p>
+            <p>En los últimos años, la educación española se ha enfrentado a desafíos significativos, entre ellos el impacto de la pandemia de COVID-19, que agudizó la brecha educativa y dejó en evidencia la falta de recursos para ofrecer un apoyo personalizado a cada estudiante.</p>
+            <div class="foto">
+                <img src="claseingles.jpg" alt="Aula decorada">
+                <img src="ingble.jpg" alt="Aula decorada">
             </div>
-            <img src="ingless.jpg" alt="Aula decorada">
-            <img src="ingble.jpg" alt="Aula decorada">
-        </div>
-    </div>
-    
+            <br>
     <header>
         ¿En qué punto nos encontramos?
     </header>
